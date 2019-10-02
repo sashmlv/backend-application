@@ -1,2 +1,4 @@
 # exclude
 users/node_modules
+users/dist
+users/package-lock.json
