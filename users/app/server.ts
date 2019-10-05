@@ -1,6 +1,9 @@
 'use strict';
 
 import config from '../configs/app.config';
+import logger from 'logger';
+
+const log = logger({});
 
 const server = require( 'fastify' )({
    http2: true,
@@ -8,7 +11,7 @@ const server = require( 'fastify' )({
 
 server.listen({ port: config.PORT, host: config.HOST, }, ( err, address ) => {
    if( err ) {
-      // log.error( err );
+      log.error( err );
       process.exit( 1 );
    };
 });

@@ -1,38 +1,40 @@
 {
-  "name": "application",
-  "version": "0.0.1",
-  "description": "The node.js application.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rollup -w -c rollup.config.js & node dist"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sashmlv/application.git"
-  },
-  "keywords": [
-    "node.js"
-  ],
-  "author": "sashmlv",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/sashmlv/application/issues"
-  },
-  "homepage": "https://github.com/sashmlv/application#readme",
-  "dependencies": {
-    "fastify": "^2.9.0",
-    "graphql": "^14.5.8",
-    "jsonwebtoken": "^8.5.1",
-    "node-rdkafka": "^2.7.1",
-    "pino": "^5.13.4",
-    "typeorm": "^0.2.19"
-  },
-  "devDependencies": {
-    "ava": "^1.4.1",
-    "pm2": "^3.5.1",
-    "rollup": "^1.22.0",
-    "rollup-plugin-typescript2": "^0.24.3",
-    "typescript": "^3.6.3"
-  }
+   "name": "application",
+   "version": "0.0.1",
+   "description": "The node.js application.",
+   "main": "index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "rollup -c rollup.config.js",
+      "dev": "rollup -w -c rollup.config.js & node dist"
+   },
+   "repository": {
+      "type": "git",
+      "url": "git+https://github.com/sashmlv/application.git"
+   },
+   "keywords": [
+      "node.js"
+   ],
+   "author": "sashmlv",
+   "license": "ISC",
+   "bugs": {
+      "url": "https://github.com/sashmlv/application/issues"
+   },
+   "homepage": "https://github.com/sashmlv/application#readme",
+   "dependencies": {
+      "fastify": "^2.9.0",
+      "graphql": "^14.5.8",
+      "jsonwebtoken": "^8.5.1",
+      "node-rdkafka": "^2.7.1",
+      "pino": "^5.13.4",
+      "typeorm": "^0.2.19",
+      "logger": "0.0.1"
+   },
+   "devDependencies": {
+      "ava": "^1.4.1",
+      "pm2": "^3.5.1",
+      "rollup": "^1.22.0",
+      "rollup-plugin-typescript2": "^0.24.3",
+      "typescript": "^3.6.3"
+   }
 }

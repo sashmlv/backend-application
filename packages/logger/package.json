@@ -2,7 +2,6 @@
    "name": "logger",
    "version": "0.0.1",
    "description": "The logger.",
-   "main": "index.ts",
    "scripts": {
       "test": "ava",
       "build": "rollup -c rollup.config.js"
@@ -20,6 +19,7 @@
       "typescript": "^3.6.3"
    },
    "dependencies": {
+      "@types/pino": "^5.8.10",
       "pino": "^5.13.4"
    },
    "ava": {

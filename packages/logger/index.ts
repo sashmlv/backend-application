@@ -1,10 +1,12 @@
 'use strict';
 
-import * as pino from 'pino';
+import pino from 'pino';
 
-export default function logger( data? ) {
+let log;
 
-   const log = pino( data )
+export default function logger( data ) {
+
+   log = log || pino( data );
 
    return {
       log,
