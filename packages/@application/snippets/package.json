@@ -1,17 +1,17 @@
 {
-   "name": "logger",
+   "name": "@application/snippets",
    "version": "0.0.1",
-   "description": "The logger.",
-   "scripts": {
-      "test": "ava",
-      "build": "rollup -c rollup.config.js"
-   },
-   "keywords": [
-      "logger"
-   ],
+   "description": "The snippets.",
    "author": "sashmlv",
    "license": "ISC",
    "main": "./dist/index.js",
+   "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "build": "rollup -c rollup.config.js"
+   },
+   "keywords": [
+      "snippets"
+   ],
    "postinstall": "npm install -g ava typescript ts-node",
    "devDependencies": {
       "ava": "^2.4.0",
@@ -19,10 +19,6 @@
       "rollup-plugin-typescript2": "^0.24.3",
       "ts-node": "^8.4.1",
       "typescript": "^3.6.3"
-   },
-   "dependencies": {
-      "@types/pino": "^5.8.12",
-      "pino": "^5.13.4"
    },
    "ava": {
       "compileEnhancements": false,
@@ -32,5 +28,8 @@
       "require": [
          "ts-node/register"
       ]
+   },
+   "dependencies": {
+      "deepmerge": "^4.1.1"
    }
 }

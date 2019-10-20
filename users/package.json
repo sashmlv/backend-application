@@ -25,10 +25,10 @@
       "fastify": "^2.10.0",
       "graphql": "^14.5.8",
       "jsonwebtoken": "^8.5.1",
-      "logger": "^0.0.1",
+      "@application/logger": "^0.0.1",
       "node-rdkafka": "^2.7.1-2",
       "pino": "^5.13.5",
-      "snippets": "^0.0.1"
+      "@application/snippets": "^0.0.1"
    },
    "devDependencies": {
       "ava": "^2.4.0",

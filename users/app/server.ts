@@ -1,7 +1,7 @@
 'use strict';
 
 import config from '../configs/app.config';
-import logger from 'logger';
+import logger from '@application/logger';
 
 const log = logger({});
 

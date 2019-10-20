@@ -4,7 +4,7 @@
 const path = require( 'path' );
 const fs = require( 'fs' );
 const shell = require( 'shelljs' );
-const snp = require( 'snippets' );
+const snp = require( '@application/snippets' );
 const ROOT = path.resolve( `${ __dirname }/../dist` );
 
 /* env */
