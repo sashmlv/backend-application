@@ -3,7 +3,7 @@
 import test from 'ava';
 import logger from './index';
 
-const log = logger();
+const log = logger({});
 
 test( 'logger', t => {
 

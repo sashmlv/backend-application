@@ -1,21 +1,20 @@
 'use strict';
 
-import typescript from 'rollup-plugin-typescript2';
+const typescript = require( 'rollup-plugin-typescript2' );
 
-export default {
+module.exports = {
 
-   input: './index.ts',
+   input: './app/server.ts',
 
    output: {
 
       file: './dist/index.js',
       format: 'cjs',
    },
-
    external: [
 
       'pino',
-      'os',
+      'os'
    ],
 
    plugins: [

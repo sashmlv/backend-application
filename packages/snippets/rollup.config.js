@@ -3,14 +3,12 @@
 import typescript from 'rollup-plugin-typescript2';
 
 export default {
-   input: './app/server.ts',
+   input: './index.ts',
    output: {
       file: './dist/index.js',
       format: 'cjs',
    },
-   watch: {
-      clearScreen: false,
-   },
+   external: [ 'deepmerge' ],
    plugins: [
       typescript()
    ]
