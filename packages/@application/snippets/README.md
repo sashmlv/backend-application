@@ -1,1 +1,1 @@
-The logger.
+The snippets.

@@ -2,7 +2,6 @@
    "name": "application",
    "version": "0.0.1",
    "description": "The users.",
-   "main": "index.js",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "rollup -c build/rollup.config.js",
@@ -15,8 +14,7 @@
    "keywords": [
       "node.js"
    ],
-   "author": "sashmlv",
-   "license": "ISC",
+   "main": "./dist/index.js",
    "bugs": {
       "url": "https://github.com/sashmlv/application/issues"
    },
@@ -39,5 +37,7 @@
       "rollup-plugin-typescript2": "^0.24.3",
       "shelljs": "^0.8.3",
       "typescript": "^3.6.4"
-   }
+   },
+   "author": "sashmlv",
+   "license": "ISC"
 }

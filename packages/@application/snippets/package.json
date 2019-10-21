@@ -2,9 +2,7 @@
    "name": "@application/snippets",
    "version": "0.0.1",
    "description": "The snippets.",
-   "author": "sashmlv",
-   "license": "ISC",
-   "main": "./dist/index.js",
+   "postinstall": "lerna bootstrap",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "rollup -c rollup.config.js"
@@ -12,7 +10,7 @@
    "keywords": [
       "snippets"
    ],
-   "postinstall": "npm install -g ava typescript ts-node",
+   "main": "./dist/index.js",
    "devDependencies": {
       "ava": "^2.4.0",
       "rollup": "^1.23.1",
@@ -31,5 +29,7 @@
    },
    "dependencies": {
       "deepmerge": "^4.1.1"
-   }
+   },
+   "author": "sashmlv",
+   "license": "ISC"
 }
