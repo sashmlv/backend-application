@@ -2,10 +2,9 @@
    "name": "@application/logger",
    "version": "0.0.1",
    "description": "The logger.",
-   "postinstall": "lerna bootstrap",
    "scripts": {
-      "test": "ava",
-      "build": "rollup -c rollup.config.js"
+      "build": "webpack --config ./build/webpack.config",
+      "test": "ava"
    },
    "keywords": [
       "logger"
@@ -13,23 +12,23 @@
    "main": "./dist/index.js",
    "devDependencies": {
       "ava": "^2.4.0",
-      "rollup": "^1.23.1",
-      "rollup-plugin-typescript2": "^0.24.3",
-      "ts-node": "^8.4.1",
-      "typescript": "^3.6.3"
+      "webpack": "^4.43.0",
+      "webpack-cli": "^3.3.11"
    },
    "dependencies": {
-      "@types/pino": "^5.8.12",
-      "pino": "^5.13.4"
+      "dotenv": "^8.2.0",
+      "pino": "^6.3.0",
+      "pino-pretty": "^4.0.0"
    },
    "ava": {
-      "compileEnhancements": false,
-      "extensions": [
-         "ts"
+      "files": [
+         "!*.js",
+         "./*.test.js"
       ],
-      "require": [
-         "ts-node/register"
-      ]
+      "verbose": true,
+      "timeout": "5s",
+      "failFast": true,
+      "serial": true
    },
    "author": "sashmlv",
    "license": "ISC"

@@ -1,5 +1,11 @@
 'use strict';
 
+
+
+// TODO: copy config
+
+
+
 /* start development process */
 const path = require( 'path' );
 const { spawn } = require( 'child_process' );

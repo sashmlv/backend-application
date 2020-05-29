@@ -1,9 +1,8 @@
 'use strict';
 
-import test from 'ava';
-import logger from './index';
-
-const log = logger({});
+const test = require( 'ava' ),
+   logger = require( './index' ),
+   log = logger({});
 
 test( 'logger', t => {
 

@@ -1,13 +1,18 @@
 'use strict';
 
-import pino from 'pino';
-import os from 'os';
+const pino = require( 'pino' ),
+   os = require( 'os' );
 
 let log;
 
-export default function logger( data ) {
+/**
+ * Logger
+ * @param {object} opts
+ * @return {object} Return logger object
+ **/
+function logger( opts ) {
 
-   log = log || pino( data );
+   log = log || pino( opts );
 
    return {
       log,
@@ -16,7 +21,7 @@ export default function logger( data ) {
       error: log.error.bind( log ),
 
       /**
-       * Get pretty parameters
+       * Get pretty env parameters
        * @return { string }
        **/
       prettyParams() {
@@ -56,3 +61,25 @@ DATE                      | ${ new Date() }
       }
    };
 };
+
+module.exports = logger;
+
+
+// 'use strict';
+
+// const config = require( '../configs/app.config' );
+// const pino = require( 'pino' );
+// const logger = pino({
+// 	level: config.LOG.LEVEL,
+// 	prettyPrint: process.env.NODE_ENV !== 'production' ? { colorize: true } : {},
+// });
+
+// const log = {
+// 	logger,
+// 	info: e => ( logger.info( e ), e ),
+// 	warn: e => ( logger.warn( e ), e ),
+// 	error: e => ( logger.error( e ), e ),
+// 	debug: e => ( logger.debug( e ), e ),
+// };
+
+// module.exports = log;

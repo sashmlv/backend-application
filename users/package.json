@@ -5,7 +5,8 @@
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
       "build": "rollup -c build/rollup.config.js",
-      "dev": "node build/dev.js"
+      "dev": "node build/dev.js",
+      "prod": "node build/prod.js"
    },
    "repository": {
       "type": "git",
