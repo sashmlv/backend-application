@@ -2,14 +2,18 @@
    "name": "@application/logger",
    "version": "0.0.1",
    "description": "The logger.",
+   "author": "sashmlv",
+   "license": "ISC",
+   "main": "./dist/index",
    "scripts": {
-      "build": "webpack --config ./build/webpack.config",
+      "prepare": "webpack --config ./build/webpack.config",
       "test": "ava"
+   },
+   "repository": {
    },
    "keywords": [
       "logger"
    ],
-   "main": "./dist/index.js",
    "devDependencies": {
       "ava": "^2.4.0",
       "webpack": "^4.43.0",
@@ -18,7 +22,8 @@
    "dependencies": {
       "dotenv": "^8.2.0",
       "pino": "^6.3.0",
-      "pino-pretty": "^4.0.0"
+      "pino-pretty": "^4.0.0",
+      "@application/config": "^0.0.1"
    },
    "ava": {
       "files": [
