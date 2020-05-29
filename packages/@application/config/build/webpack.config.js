@@ -3,7 +3,7 @@
 const Webpack = require( 'webpack' ),
    path = require( 'path' ),
    config = require( '../index' ),
-   DIST = path.resolve( `${__dirname}/../dist` );
+   DIST = path.resolve( `${ __dirname }/../dist` );
 
 module.exports = {
 
