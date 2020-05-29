@@ -6,7 +6,5 @@ const test = require( 'ava' ),
 
 test( 'logger', t => {
 
-	t.plan( 1 );
-
 	t.deepEqual( Object.getPrototypeOf( log.log ).constructor.name, 'Pino' );
 });

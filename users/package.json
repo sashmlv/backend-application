@@ -26,8 +26,7 @@
       "jsonwebtoken": "^8.5.1",
       "@application/logger": "^0.0.1",
       "node-rdkafka": "^2.7.1-2",
-      "pino": "^5.13.5",
-      "@application/snippets": "^0.0.1"
+      "pino": "^5.13.5"
    },
    "devDependencies": {
       "ava": "^2.4.0",

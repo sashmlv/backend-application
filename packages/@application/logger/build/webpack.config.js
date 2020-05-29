@@ -2,13 +2,13 @@
 
 const Webpack = require( 'webpack' ),
    path = require( 'path' ),
-   env = require( '../env' ),
-   DIST = path.resolve( `${__dirname}/../dist` );
+   config = require( '@application/config' ),
+   DIST = path.resolve( `${ __dirname }/../dist` );
 
 module.exports = {
 
    target: 'node',
-   stats: env.NODE_ENV !== 'production' ? {
+   stats: config.NODE_ENV !== 'production' ? {
 
       all: false,
       colors: true,
@@ -21,7 +21,7 @@ module.exports = {
       colors: true,
    },
 
-   mode: env.NODE_ENV,
+   mode: config.NODE_ENV,
    entry: {
 
       index: './index',
@@ -29,7 +29,7 @@ module.exports = {
    output: {
 
       path: DIST,
-      filename: '[name].[contenthash:8].js',
+      filename: '[name].js',
       libraryTarget: 'umd',
    },
    plugins: [

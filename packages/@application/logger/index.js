@@ -1,9 +1,14 @@
 'use strict';
 
 const pino = require( 'pino' ),
-   os = require( 'os' );
+   os = require( 'os' ),
+   config = require( '@application/config' ),
+   opts = {
 
-let log;
+      level: config.LOG.LEVEL,
+      prettyPrint: config.NODE_ENV !== 'production' ? { colorize: true } : {},
+   },
+   log = pino( opts );
 
 /**
  * Logger
@@ -12,13 +17,13 @@ let log;
  **/
 function logger( opts ) {
 
-   log = log || pino( opts );
-
    return {
+
       log,
       info: log.info.bind( log ),
       warn: log.warn.bind( log ),
       error: log.error.bind( log ),
+      debug: log.debug.bind( log ),
 
       /**
        * Get pretty env parameters
@@ -63,23 +68,3 @@ DATE                      | ${ new Date() }
 };
 
 module.exports = logger;
-
-
-// 'use strict';
-
-// const config = require( '../configs/app.config' );
-// const pino = require( 'pino' );
-// const logger = pino({
-// 	level: config.LOG.LEVEL,
-// 	prettyPrint: process.env.NODE_ENV !== 'production' ? { colorize: true } : {},
-// });
-
-// const log = {
-// 	logger,
-// 	info: e => ( logger.info( e ), e ),
-// 	warn: e => ( logger.warn( e ), e ),
-// 	error: e => ( logger.error( e ), e ),
-// 	debug: e => ( logger.debug( e ), e ),
-// };
-
-// module.exports = log;
