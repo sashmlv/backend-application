@@ -40,11 +40,10 @@ class Crypt {
    };
 
    /**
-    * Encryp
-    * @param {string} text
-    * @return {string} Return encrypted string
+    * Check init
+    * @return {undefined}
     **/
-   encrypt( text ) {
+   checkInit() {
 
       const initialized = Boolean(
 
@@ -59,6 +58,16 @@ class Crypt {
             code: 'CRYPT_NOT_INITIALIZED',
          });
       };
+   }
+
+   /**
+    * Encryp
+    * @param {string} text
+    * @return {string} Return encrypted string
+    **/
+   encrypt( text ) {
+
+      this.checkInit();
 
       const cipher = crypto.createCipheriv( this.algorithm, this.key, this.iv ),
          encrypted = cipher.update( text, 'utf8', 'hex' ) +
@@ -73,6 +82,8 @@ class Crypt {
     * @return {string} Return encrypted string
     **/
    decrypt( encrypted ) {
+
+      this.checkInit();
 
       const decipher = crypto.createDecipheriv( this.algorithm, this.key, this.iv ),
          decrypted = decipher.update( encrypted, 'hex', 'utf8' ) +
