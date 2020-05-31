@@ -4,7 +4,9 @@ const path = require( 'path' ),
    fs = require( 'fs' ),
    dotenv = require( 'dotenv' ),
    sp = require( 'snippets' ),
+   crypt = require( '@application/crypt' ),
    APP_ROOT = process.env.PWD || process.cwd(),
+   PASSWORD = process.env.PASSWORD,
    SALT = process.env.SALT;
 
 /* Get environment variables */
@@ -64,5 +66,14 @@ if( fs.existsSync( configFile )){
 
 config.NODE_ENV = env.NODE_ENV;
 config.env = env;
+
+/* decrypt credentials */
+if( PASSWORD && SALT ){
+
+   crypt.initSync( PASSWORD, SALT );
+
+   config.DB.PASSWORD = crypt.decrypt( config.DB.PASSWORD );
+   config.STORAGE.PASSWORD = crypt.decrypt( config.STORAGE.PASSWORD );
+}
 
 module.exports = sp.deepFreeze( config );
