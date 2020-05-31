@@ -26,6 +26,20 @@ class Crypt {
    };
 
    /**
+    * Set params sync
+    * @param {string} password
+    * @param {string} salt
+    **/
+   initSync( password, salt ) {
+
+      this.algorithm = 'aes-192-cbc';
+      this.password = password;
+      this.salt = salt;
+      this.key = crypto.scryptSync( this.password, this.salt, 24 );
+      this.iv = Buffer.alloc( 16, 0 );
+   };
+
+   /**
     * Encryp
     * @param {string} text
     * @return {string} Return encrypted string
