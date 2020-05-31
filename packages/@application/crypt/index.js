@@ -1,0 +1,71 @@
+'use strict';
+
+const crypto = require( 'crypto' ),
+   util = require( 'util' ),
+   { CryptError } = require( './crypt.error' ),
+   scrypt  = util.promisify( crypto.scrypt );
+
+/**
+ * Crypt
+ * https://stackoverflow.com/questions/6953286/node-js-encrypting-data-that-needs-to-be-decrypted/61337361#61337361
+ **/
+class Crypt {
+
+   /**
+    * Set params
+    * @param {string} password
+    * @param {string} salt
+    **/
+   async init( password, salt ) {
+
+      this.algorithm = 'aes-192-cbc';
+      this.password = password;
+      this.salt = salt;
+      this.key = await scrypt( this.password, this.salt, 24 );
+      this.iv = Buffer.alloc( 16, 0 );
+   };
+
+   /**
+    * Encryp
+    * @param {string} text
+    * @return {string} Return encrypted string
+    **/
+   encrypt( text ) {
+
+      const initialized = Boolean(
+
+         this.algorithm && this.password && this.salt && this.key && this.iv
+      );
+
+      if( ! initialized ) {
+
+         throw new CryptError({
+
+            message: 'Crypt module not initialized',
+            code: 'CRYPT_NOT_INITIALIZED',
+         });
+      };
+
+      const cipher = crypto.createCipheriv( this.algorithm, this.key, this.iv ),
+         encrypted = cipher.update( text, 'utf8', 'hex' ) +
+           cipher.final( 'hex' );
+
+      return encrypted;
+   };
+
+   /**
+    * Decrypt
+    * @param {string} text
+    * @return {string} Return encrypted string
+    **/
+   decrypt( encrypted ) {
+
+      const decipher = crypto.createDecipheriv( this.algorithm, this.key, this.iv ),
+         decrypted = decipher.update( encrypted, 'hex', 'utf8' ) +
+           decipher.final( 'utf8' );
+
+      return decrypted;
+   };
+};
+
+module.exports = new Crypt();
