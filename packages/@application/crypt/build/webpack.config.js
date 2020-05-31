@@ -2,13 +2,13 @@
 
 const Webpack = require( 'webpack' ),
    path = require( 'path' ),
-   config = require( '../index' ),
    DIST = path.resolve( `${ __dirname }/../dist` );
 
 module.exports = {
 
    target: 'node',
-   stats: config.NODE_ENV !== 'production' ? {
+   mode: 'production',
+   stats: {
 
       all: false,
       colors: true,
@@ -16,12 +16,7 @@ module.exports = {
       errorDetails: true,
       warnings: true,
       builtAt: true,
-   } : {
-
-      colors: true,
    },
-
-   mode: config.NODE_ENV,
    entry: {
 
       index: './index',
