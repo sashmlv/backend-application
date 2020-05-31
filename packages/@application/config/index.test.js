@@ -5,5 +5,11 @@ const test = require( 'ava' ),
 
 test( 'config', t => {
 
-	t.deepEqual( Object.keys( config ), [ 'NODE_ENV', 'env' ]);
+	t.truthy( config.NODE_ENV );
+	t.truthy( config.env );
+});
+
+test( 'config frozen', t => {
+
+	t.throws( _=> config.HOST = 'http://example.com' );
 });

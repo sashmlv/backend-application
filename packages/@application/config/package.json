@@ -9,13 +9,13 @@
       "prepare": "webpack --config ./build/webpack.config",
       "test": "ava"
    },
-   "repository": {
-   },
+   "repository": {},
    "keywords": [
       "config"
    ],
    "dependencies": {
-      "dotenv": "^8.2.0"
+      "dotenv": "^8.2.0",
+      "snippets": "git+https://github.com/sashmlv/modules-snippets.git"
    },
    "devDependencies": {
       "ava": "^2.4.0",

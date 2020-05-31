@@ -3,7 +3,9 @@
 const path = require( 'path' ),
    fs = require( 'fs' ),
    dotenv = require( 'dotenv' ),
-   APP_ROOT = process.env.PWD || process.cwd();
+   sp = require( 'snippets' ),
+   APP_ROOT = process.env.PWD || process.cwd(),
+   SALT = process.env.SALT;
 
 /* Get environment variables */
 let env = {
@@ -63,4 +65,4 @@ if( fs.existsSync( configFile )){
 config.NODE_ENV = env.NODE_ENV;
 config.env = env;
 
-module.exports = config;
+module.exports = sp.deepFreeze( config );
