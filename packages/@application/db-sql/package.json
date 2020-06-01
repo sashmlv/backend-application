@@ -1,0 +1,38 @@
+{
+   "name": "@application/db-sql",
+   "version": "0.0.1",
+   "description": "The db sql.",
+   "author": "sashmlv",
+   "license": "ISC",
+   "main": "./dist/index",
+   "scripts": {
+      "prepare": "webpack --config ./build/webpack.config",
+      "test": "ava"
+   },
+   "repository": {},
+   "keywords": [
+      "db",
+      "sql"
+   ],
+   "dependencies": {
+      "@application/config": "^0.0.1",
+      "@application/logger": "^0.0.1",
+      "knex": "^0.21.1",
+      "pg": "^8.2.1"
+   },
+   "devDependencies": {
+      "ava": "^2.4.0",
+      "webpack": "^4.43.0",
+      "webpack-cli": "^3.3.11"
+   },
+   "ava": {
+      "files": [
+         "!*.js",
+         "./*.test.js"
+      ],
+      "verbose": true,
+      "timeout": "5s",
+      "failFast": true,
+      "serial": true
+   }
+}
