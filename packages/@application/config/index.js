@@ -41,6 +41,7 @@ let config = {
       USER: 'user',
       PASSWORD: 'password',
       DATABASE: 'dbname',
+      DEBUG: env.NODE_ENV === 'production' ? true : false,
    },
    STORAGE: {
 
@@ -50,7 +51,7 @@ let config = {
    },
    LOG: {
 
-      LEVEL: 'debug',
+      LEVEL: env.NODE_ENV === 'production' ? 'info' : 'debug',
    },
 };
 
