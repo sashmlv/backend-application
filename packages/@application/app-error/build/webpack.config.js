@@ -30,5 +30,5 @@ module.exports = {
    plugins: [
 
       new Webpack.ProgressPlugin(),
-   ].filter( v => v )
+   ]
 };
