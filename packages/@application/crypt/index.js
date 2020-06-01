@@ -61,7 +61,7 @@ class Crypt {
    }
 
    /**
-    * Encryp
+    * Encrypt
     * @param {string} text
     * @return {string} Return encrypted string
     **/
@@ -79,7 +79,7 @@ class Crypt {
    /**
     * Decrypt
     * @param {string} text
-    * @return {string} Return encrypted string
+    * @return {string} Return decrypted string
     **/
    decrypt( encrypted ) {
 
