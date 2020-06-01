@@ -9,16 +9,15 @@
       "prepare": "webpack --config ./build/webpack.config",
       "test": "ava"
    },
-   "repository": {
-   },
+   "repository": {},
    "keywords": [
       "logger"
    ],
    "dependencies": {
+      "@application/config": "^0.0.1",
       "dotenv": "^8.2.0",
       "pino": "^6.3.0",
-      "pino-pretty": "^4.0.0",
-      "@application/config": "^0.0.1"
+      "pino-pretty": "^4.0.0"
    },
    "devDependencies": {
       "ava": "^2.4.0",
@@ -34,7 +33,5 @@
       "timeout": "5s",
       "failFast": true,
       "serial": true
-   },
-   "author": "sashmlv",
-   "license": "ISC"
+   }
 }

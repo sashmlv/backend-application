@@ -31,27 +31,27 @@ env.NODE_ENV = env.NODE_ENV || 'development';
 /* Get application config */
 let config = {
 
-   HOST: "0.0.0.0",
-   PORT: "3000",
+   HOST: '0.0.0.0',
+   PORT: '3000',
    DB: {
 
-      CLIENT: "pg",
-      VERSION: "12",
-      HOST: "0.0.0.0",
-      USER: "user",
-      PASSWORD: "password",
-      DATABASE: "dbname"
+      CLIENT: 'pg',
+      VERSION: '12',
+      HOST: '0.0.0.0',
+      USER: 'user',
+      PASSWORD: 'password',
+      DATABASE: 'dbname',
    },
    STORAGE: {
 
-      HOST: "0.0.0.0",
-      PORT: "6379",
-      PASSWORD: ""
+      HOST: '0.0.0.0',
+      PORT: '6379',
+      PASSWORD: 'password',
    },
    LOG: {
 
-      LEVEL: "debug"
-   }
+      LEVEL: 'debug',
+   },
 };
 
 const configFile = path.resolve( `${ APP_ROOT }/config.${ env.NODE_ENV }.js` );
@@ -76,4 +76,4 @@ if( PASSWORD && SALT ){
    config.STORAGE.PASSWORD = crypt.decrypt( config.STORAGE.PASSWORD );
 }
 
-module.exports = sp.deepFreeze( config );
+module.exports = config.NODE_ENV === 'production' ? sp.deepFreeze( config ) : config;

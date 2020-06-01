@@ -14,11 +14,14 @@
       "config"
    ],
    "dependencies": {
+      "@application/crypt": "^0.0.1",
       "dotenv": "^8.2.0",
       "snippets": "git+https://github.com/sashmlv/modules-snippets.git"
    },
    "devDependencies": {
       "ava": "^2.4.0",
+      "rewire": "^5.0.0",
+      "sinon": "^9.0.2",
       "webpack": "^4.43.0",
       "webpack-cli": "^3.3.11"
    },
