@@ -1,6 +1,6 @@
 'use strict';
 
-const ModuleError = require( 'module-error' );
+const { ModuleError } = require( 'module-error' );
 
 /**
  * App error class
