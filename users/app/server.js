@@ -1,6 +1,6 @@
 'use strict';
 
-const config = require( '@appliacation/config' ),
+const config = require( '@application/config' ),
    log = require( '@application/logger' ),
    app = require( './app' ),
    server = require( 'http' ).createServer( app );
