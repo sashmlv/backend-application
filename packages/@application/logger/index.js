@@ -19,7 +19,7 @@ function logger( opts ) {
 
    return {
 
-      log,
+      log: config.NODE_ENV === 'production' ? undefined : log,
       info: log.info.bind( log ),
       warn: log.warn.bind( log ),
       error: log.error.bind( log ),
