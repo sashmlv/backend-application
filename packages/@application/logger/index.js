@@ -6,7 +6,7 @@ const pino = require( 'pino' ),
    opts = {
 
       level: config.LOG.LEVEL,
-      prettyPrint: config.NODE_ENV !== 'production' ? { colorize: true } : {},
+      prettyPrint: config.NODE_ENV === 'production' ? {} : { colorize: true },
    },
    log = pino( opts );
 
