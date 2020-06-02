@@ -8,6 +8,15 @@ module.exports = {
 
    target: 'node',
    mode: 'production',
+   node: {
+
+      __dirname: false,
+      __filename: false,
+   },
+   optimization: {
+
+      nodeEnv: false,
+   },
    stats: {
 
       all: false,
@@ -30,5 +39,5 @@ module.exports = {
    plugins: [
 
       new Webpack.ProgressPlugin(),
-   ]
+   ],
 };

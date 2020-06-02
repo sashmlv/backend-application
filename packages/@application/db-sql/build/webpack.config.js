@@ -8,6 +8,15 @@ module.exports = {
 
    target: 'node',
    mode: 'production',
+   node: {
+
+      __dirname: false,
+      __filename: false,
+   },
+   optimization: {
+
+      nodeEnv: false,
+   },
    stats: {
 
       all: false,
@@ -31,5 +40,5 @@ module.exports = {
 
       new Webpack.ProgressPlugin(),
       new Webpack.IgnorePlugin( new RegExp( '(mssql|mysql|mysql2|oracledb|sqlite3|pg-native|pg-query-stream)' )),
-   ]
+   ],
 };
