@@ -67,4 +67,4 @@ DATE                      | ${ new Date() }
    };
 };
 
-module.exports = logger;
+module.exports = logger( opts );

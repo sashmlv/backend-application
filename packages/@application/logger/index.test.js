@@ -1,8 +1,7 @@
 'use strict';
 
 const test = require( 'ava' ),
-   logger = require( './index' ),
-   log = logger({});
+   log = require( './index' );
 
 test( 'logger', t => {
 
