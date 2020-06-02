@@ -61,7 +61,7 @@ if( fs.existsSync( configFile )){
 
    config = Object.assign(
       config,
-      JSON.parse( fs.readFileSync( configFile, 'utf8' ))
+      fs.readFileSync( configFile, 'utf8' ),
    );
 };
 
