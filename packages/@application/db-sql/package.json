@@ -16,6 +16,7 @@
    ],
    "dependencies": {
       "@application/config": "^0.0.1",
+      "@application/error-handler": "^0.0.1",
       "@application/logger": "^0.0.1",
       "knex": "^0.21.1",
       "pg": "^8.2.1"
