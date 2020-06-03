@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require( '@application/config' ),
-   log = require( '@application/logger' ),
+   eh = require( '@application/error-handler' ),
    app = require( './app' ),
    server = require( 'http' ).createServer( app );
 
@@ -11,7 +11,11 @@ server.listen(
 
    config.PORT,
    config.HOST,
-   _=> log.info( `Server listen on: ${ config.HOST }:${ config.PORT }` )
+   _=> eh.handle({
+
+      message:`Server listen on: ${ config.HOST }:${ config.PORT }`,
+      level: 'info',
+   })
 );
 
 module.exports = server;
