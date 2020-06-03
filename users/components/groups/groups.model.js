@@ -2,37 +2,37 @@
 
 const db = require( '@application/db-sql' );
 
-class UsersModel {
+class GroupsModel {
 
    /**
-    * Create user
+    * Create group
     * @param {object} data
     * @param {string} data.login
     * @param {string} data.email
     * @param {string} data.password
-    * @return {object} Return user
+    * @return {object} Return group
     **/
    async create( data ) {
    };
 
    /**
-    * Get user
+    * Get group
     * @param {object} data
     * @param {string} data.id
     * @param {string} data.login
     * @param {string} data.email
-    * @return {object} Return user
+    * @return {object} Return group
     **/
    async get( data ) {
    };
 
    /**
-    * Update user
+    * Update group
     * @param {object} data
-    * @return {object} Return user
+    * @return {object} Return group
     **/
    async update( data ) {
    };
 };
 
-module.exports = new UsersModel();
+module.exports = new GroupsModel();
