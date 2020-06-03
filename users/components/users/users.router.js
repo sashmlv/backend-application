@@ -1,38 +1,19 @@
 'use strict';
 
-const db = require( '@application/db-sql' );
+const Express = require( 'express' );
+const router = Express.Router();
 
-class UsersModel {
+router.use( '/users', async ( req, res, next ) => {
 
-   /**
-    * Create user
-    * @param {object} data
-    * @param {string} data.login
-    * @param {string} data.email
-    * @param {string} data.password
-    * @return {object} Return user
-    **/
-   async create( data ) {
-   };
+   try {
 
-   /**
-    * Get user
-    * @param {object} data
-    * @param {string} data.id
-    * @param {string} data.login
-    * @param {string} data.email
-    * @return {object} Return user
-    **/
-   async get( data ) {
-   };
+   }
+   catch( error ) {
 
-   /**
-    * Update user
-    * @param {object} data
-    * @return {object} Return user
-    **/
-   async update( data ) {
-   };
-};
+      return next( error );
+   }
 
-module.exports = new UsersModel();
+   return next();
+});
+
+module.exports = router;

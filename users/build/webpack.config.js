@@ -28,7 +28,7 @@ module.exports = {
    },
    entry: {
 
-      index: './index',
+      server: './app/server.js',
    },
    output: {
 
