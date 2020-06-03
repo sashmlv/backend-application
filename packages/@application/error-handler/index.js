@@ -21,6 +21,7 @@ class ErrorHandler {
 
       process.on( 'uncaughtException', error => {
 
+         error.level = 'error';
          this.handle( error );
       });
    };
