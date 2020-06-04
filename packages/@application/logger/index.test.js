@@ -1,9 +1,18 @@
 'use strict';
 
-const test = require( 'ava' ),
-   log = require( './index' );
+const sinon = require( 'sinon' ),
+   rewire = require( 'rewire' ),
+   test = require( 'ava' ),
+   er = rewire( './index' ),
+   log = er.__get__( 'log' );
 
-test( 'logger', t => {
+log.error = sinon.spy();
 
-	t.deepEqual( Object.getPrototypeOf( log.log ).constructor.name, 'Pino' );
+test( 'error handler', t => {
+
+   const error = er.log();
+
+   t.deepEqual( error.code, 'UNDEFINED_ERROR' );
+   t.deepEqual( error.level, 'error' );
+   t.deepEqual( log.error.callCount, 1 );
 });

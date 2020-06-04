@@ -3,6 +3,7 @@
 const pino = require( 'pino' ),
    os = require( 'os' ),
    config = require( '@application/config' ),
+   { ModuleError } = require( 'module-error' ),
    opts = {
 
       level: config.LOG.LEVEL,
@@ -10,26 +11,58 @@ const pino = require( 'pino' ),
    },
    log = pino( opts );
 
-/**
- * Logger
- * @param {object} opts
- * @return {object} Return logger object
- **/
-function logger( opts ) {
+class Logger {
 
-   return {
+   /**
+    * Create a logger
+    * @return {undefined}
+    **/
+   constructor() {
 
-      log: config.NODE_ENV === 'production' ? undefined : log,
-      info: log.info.bind( log ),
-      warn: log.warn.bind( log ),
-      error: log.error.bind( log ),
-      debug: log.debug.bind( log ),
+      process.on( 'unhandledRejection', error => {
 
-      /**
-       * Get pretty env parameters
-       * @return { string }
-       **/
-      prettyParams() {
+         throw error;
+      });
+
+      process.on( 'uncaughtException', error => {
+
+         error = error || {};
+         error.level = 'error';
+         this.log( error );
+      });
+   };
+
+   /**
+    * Log error
+    * @param {object} error
+    * @param {string} error.level
+    * @return {object} Return error
+    **/
+   log( error ) {
+
+      if( ! error ) {
+
+         error = new ModuleError({
+
+            message: 'Undefined error',
+            code: 'UNDEFINED_ERROR',
+            level: 'error',
+         });
+      }
+
+      if( log[ error.level || 'error' ]){
+
+         log[ error.level || 'error' ]( error );
+      }
+
+      return error;
+   };
+
+   /**
+    * Get pretty env parameters
+    * @return {string}
+    **/
+   prettyParams() {
 
          return `\n
 *** PARAMETERS: ***\n
@@ -63,8 +96,9 @@ NODE TMPDIR               | ${ os.tmpdir() }
 DATE                      | ${ new Date() }
 ========================================
 \n`;
-      }
    };
+
+
 };
 
-module.exports = logger( opts );
+module.exports = new Logger();
