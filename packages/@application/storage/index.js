@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require( '@application/config' ),
-   eh = require( '@application/error-handler' ),
+   { log } = require( '@application/logger' ),
    redis = require( 'redis' ),
    { promisify } = require( 'util' ),
    client = redis.createClient({
@@ -11,36 +11,36 @@ const config = require( '@application/config' ),
       password: config.STORAGE.PASSWORD,
    });
 
-client.on( 'error', e => eh.handle(
+client.on( 'error', e => log(
 
    ( e.message = `Redis error: ${ e.message }`, e.level = 'error', e )
 ));
 
-client.on( 'warning', msg => eh.handle({
+client.on( 'warning', msg => log({
 
    message: `Redis warning: ${ msg }`,
    level: 'warning',
 }));
 
-client.on( 'connect', _=> eh.handle({
+client.on( 'connect', _=> log({
 
    message: `Redis connect`,
    level: 'info',
 }));
 
-client.on( 'ready', _=> eh.handle({
+client.on( 'ready', _=> log({
 
    message: `Redis ready`,
    level: 'info',
 }));
 
-client.on( 'reconnecting', _=> eh.handle({
+client.on( 'reconnecting', _=> log({
 
    message: `Redis reconnecting`,
    level: 'info',
 }));
 
-client.on( 'end', _=> eh.handle({
+client.on( 'end', _=> log({
 
    message: `Redis connection end`,
    level: 'info',

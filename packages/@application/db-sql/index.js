@@ -1,7 +1,7 @@
 'use strict';
 
 const config = require( '@application/config' ),
-   eh = require( '@application/error-handler' ),
+   { log } = require( '@application/logger' ),
    Knex = require( './knex' );
 
 const knex = Knex({
@@ -18,9 +18,9 @@ const knex = Knex({
    },
    log: {
 
-      warn: e => eh.handle(( e.level = 'warn', e )),
-      error: e => eh.handle(( e.level = 'error', e )),
-      debug: e => eh.handle(( e.level = 'debug', e )),
+      warn: e => log(( e.level = 'warn', e )),
+      error: e => log(( e.level = 'error', e )),
+      debug: e => log(( e.level = 'debug', e )),
    },
 });
 
