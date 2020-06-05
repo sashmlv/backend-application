@@ -9,7 +9,7 @@ const pino = require( 'pino' ),
       level: config.LOG.LEVEL,
       prettyPrint: config.NODE_ENV === 'production' ? {} : { colorize: true },
    },
-   log = pino( opts );
+   logLib = pino( opts );
 
 class Logger {
 
@@ -50,9 +50,9 @@ class Logger {
          });
       }
 
-      if( log[ error.level || 'error' ]){
+      if( logLib[ error.level || 'error' ]){
 
-         log[ error.level || 'error' ]( error );
+         logLib[ error.level || 'error' ]( error );
       }
 
       return error;
@@ -97,7 +97,6 @@ DATE                      | ${ new Date() }
 ========================================
 \n`;
    };
-
 
 };
 
