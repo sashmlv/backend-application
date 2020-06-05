@@ -6,14 +6,19 @@ const sinon = require( 'sinon' ),
    logger = rewire( './index' ),
    logLibError = sinon.spy();
 
-logger.__set__( 'logLib', {
+test( 'logger lib', t => {
 
-   error: logLibError
+ 	t.deepEqual( Object.getPrototypeOf( logger.logLib ).constructor.name, 'Pino' );
 });
 
-logger.log = sinon.spy( logger.log );
+test( 'logger log', t => {
 
-test( 'error handler', t => {
+   logger.__set__( 'logLib', {
+
+      error: logLibError
+   });
+
+   logger.log = sinon.spy( logger.log );
 
    const error = logger.log();
 

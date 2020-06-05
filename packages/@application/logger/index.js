@@ -33,6 +33,15 @@ class Logger {
    };
 
    /**
+    * Get logger lib instance
+    * @return {object} Return logger lib instance
+    **/
+   get logLib() {
+
+      return logLib;
+   };
+
+   /**
     * Log error
     * @param {object} error
     * @param {string} error.level
