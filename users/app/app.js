@@ -34,20 +34,20 @@ app.use([
 /* success response */
 app.use(( req, res, next ) => {
 
-	if( ! res.locals.data ) {
+   if( ! res.locals.data ) {
 
-		return next( notFound );
-	}
+      return next( notFound );
+   }
 
-	const data = res.locals.data;
+   const data = res.locals.data;
 
-	return res.json({
+   return res.json({
 
-		data: data && data.rows && ( data.rows.length === 1 && data.rows[ 0 ] || data.rows ) || data, // unwrap data,
-		rowCount: data && data.rowCount,
-		success: ( data && data.success ) === undefined && true || data.success,
-		status:	( data && data.status ) === undefined && 200 || data.status,
-	});
+      data: data && data.rows && ( data.rows.length === 1 && data.rows[ 0 ] || data.rows ) || data, // unwrap data,
+      rowCount: data && data.rowCount,
+      success: ( data && data.success ) === undefined && true || data.success,
+      status:  ( data && data.status ) === undefined && 200 || data.status,
+   });
 });
 
 /* error response */
@@ -56,23 +56,23 @@ app.use( async ( error, req, res, next ) => {
    error.status = error.status || 500;
    error.message = error.message || 'An error occurred';
 
-	const response = {
+   const response = {
 
-		success: false,
-		message: error.message,
-		code: error.code,
-		status: error.status,
-		data: error.data,
-	};
+      success: false,
+      message: error.message,
+      code: error.code,
+      status: error.status,
+      data: error.data,
+   };
 
-	logger.log( error );
+   logger.log( error );
 
-	if( res.headersSent ) { // headers already sent
+   if( res.headersSent ) { // headers already sent
 
-		return next( error );
-	}
+      return next( error );
+   }
 
-	return res.status( error.status ) // send error to client
+   return res.status( error.status ) // send error to client
      .json( response );
 });
 
