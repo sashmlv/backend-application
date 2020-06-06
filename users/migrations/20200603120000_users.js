@@ -22,6 +22,7 @@ exports.up = async function( db ) {
    });
 
    await db.raw(`
+
       CREATE TRIGGER set_updated_at
       BEFORE UPDATE ON users
       FOR EACH ROW

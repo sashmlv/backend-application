@@ -1,6 +1,6 @@
 'use strict';
 
-const AppError = require( '@application/app-error' );
+const { AppError } = require( '@application/app-error' );
 
 /**
  * Users error class
