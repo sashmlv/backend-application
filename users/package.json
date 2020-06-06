@@ -6,6 +6,7 @@
    "license": "ISC",
    "main": "./dist/server",
    "scripts": {
+      "start": "node app/server.js",
       "dev": "node build/dev.js",
       "prod": "node build/prod.js",
       "test": "ava"
@@ -24,9 +25,12 @@
    "dependencies": {
       "@application/app-error": "^0.0.1",
       "@application/config": "^0.0.1",
+      "@application/db-sql": "^0.0.1",
       "@application/logger": "^0.0.1",
+      "@application/storage": "^0.0.1",
       "express": "^4.17.1",
-      "express-pino-logger": "^5.0.0"
+      "express-pino-logger": "^5.0.0",
+      "helmet": "^3.22.0"
    },
    "devDependencies": {
       "ava": "^2.4.0",

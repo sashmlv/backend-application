@@ -7,15 +7,18 @@ const config = require( '@application/config' ),
 
 server.on( 'error', error => log.error( error ));
 
-server.listen(
+if( config.SERVER.ENABLED ){
 
-   config.PORT,
-   config.HOST,
-   _=> log({
+   server.listen(
 
-      message:`Server listen on: ${ config.HOST }:${ config.PORT }`,
-      level: 'info',
-   })
-);
+      config.SERVER.PORT,
+      config.SERVER.HOST,
+      _=> log({
+
+         message:`Server listen on: ${ config.SERVER.HOST }:${ config.SERVER.PORT }`,
+         level: 'info',
+      })
+   );
+};
 
 module.exports = server;

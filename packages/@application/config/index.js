@@ -31,8 +31,12 @@ env.NODE_ENV = env.NODE_ENV || 'development';
 /* Get application config */
 let config = {
 
-   HOST: '0.0.0.0',
-   PORT: '3000',
+   SERVER: {
+
+      HOST: '0.0.0.0',
+      PORT: '3000',
+      ENABLED: true,
+   },
    DB: {
 
       CLIENT: 'pg',
@@ -42,16 +46,19 @@ let config = {
       PASSWORD: 'password',
       DATABASE: 'dbname',
       DEBUG: env.NODE_ENV === 'production' ? true : false,
+      ENABLED: true,
    },
    STORAGE: {
 
       HOST: '0.0.0.0',
       PORT: '6379',
       PASSWORD: 'password',
+      ENABLED: true,
    },
-   LOG: {
+   LOGGER: {
 
       LEVEL: env.NODE_ENV === 'production' ? 'info' : 'debug',
+      ENABLED: true,
    },
 };
 

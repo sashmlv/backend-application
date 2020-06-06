@@ -11,7 +11,7 @@ const knex = Knex({
    debug: config.DB.DEBUG,
    connection: {
 
-      host: config.DB.HOST,
+      host: config.DB.ENABLED ? config.DB.HOST : undefined,
       user: config.DB.USER,
       password: config.DB.PASSWORD,
       database: config.DB.DATABASE,

@@ -6,7 +6,7 @@ const pino = require( 'pino' ),
    { ModuleError } = require( 'module-error' ),
    opts = {
 
-      level: config.LOG.LEVEL,
+      level: config.LOGGER.LEVEL,
       prettyPrint: config.NODE_ENV === 'production' ? {} : { colorize: true },
    },
    logLib = pino( opts );
@@ -48,6 +48,11 @@ class Logger {
     * @return {object} Return error
     **/
    log( error ) {
+
+      if( ! config.LOGGER.ENABLED ){
+
+         return undefined;
+      };
 
       if( ! error ) {
 

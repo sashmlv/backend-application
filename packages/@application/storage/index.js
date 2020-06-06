@@ -11,6 +11,11 @@ const config = require( '@application/config' ),
       password: config.STORAGE.PASSWORD,
    });
 
+if( ! config.STORAGE.ENABLED ) {
+
+   client.quit();
+};
+
 client.on( 'error', e => log(
 
    ( e.message = `Redis error: ${ e.message }`, e.level = 'error', e )
