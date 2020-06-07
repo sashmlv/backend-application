@@ -6,7 +6,7 @@
    "license": "ISC",
    "main": "./dist/server",
    "scripts": {
-      "start": "node app/server.js",
+      "start": "NODE_ENV=development node app/server.js",
       "dev": "node build/dev.js",
       "prod": "node build/prod.js",
       "test": "ava"

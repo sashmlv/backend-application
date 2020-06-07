@@ -15,7 +15,7 @@ if( config.SERVER.ENABLED ){
       config.SERVER.HOST,
       _=> log({
 
-         message:`Server listen on: ${ config.SERVER.HOST }:${ config.SERVER.PORT }`,
+         message:`Server listen at: ${ config.SERVER.HOST }:${ config.SERVER.PORT }, NODE_ENV: ${ config.NODE_ENV }`,
          level: 'info',
       })
    );
