@@ -47,6 +47,7 @@ let config = {
       DATABASE: 'dbname',
       DEBUG: env.NODE_ENV === 'production' ? true : false,
       ENABLED: true,
+      MIGRATIONS_ENABLED: true,
    },
    STORAGE: {
 
