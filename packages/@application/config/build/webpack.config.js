@@ -8,7 +8,7 @@ const Webpack = require( 'webpack' ),
 module.exports = {
 
    target: 'node',
-   mode: 'development',
+   mode: 'production',
    node: {
 
       __dirname: false,
