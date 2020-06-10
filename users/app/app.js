@@ -4,8 +4,10 @@ const Express = require( 'express' ),
    expressPinoLogger = require( 'express-pino-logger' ),
    bodyParser = require( 'body-parser' ),
    helmet = require( 'helmet' ),
+   config = require( '@application/config' ),
    db = require( '@application/db-sql' ),
    logger = require( '@application/logger' ),
+   // storage = require( '@application/storage' ),
    app = Express(),
    { UsersError, notFound } = require( '../modules/users.error' ),
    // groupsRouter = require( '../components/groups/groups.router' ),
@@ -14,7 +16,7 @@ const Express = require( 'express' ),
    usersRouter = require( '../components/users/users.router' );
 
 /* load libs */
-app.use( expressPinoLogger )({
+app.use( expressPinoLogger({
 
    logger: logger.logLib
 }));
@@ -73,10 +75,16 @@ app.use( async ( error, req, res, next ) => {
    }
 
    return res.status( error.status ) // send error to client
-     .json( response );
+      .json( response );
 });
 
-// await db.migrate.latest();
-// logger.log( `Current migration version: ${ await db.migrate.currentVersion()}` );
+/* migrations */
+if(config.DB.MIGRATIONS_ENABLED){
 
+   ( async _=> {
+
+      await db.migrate.latest();
+      logger.log( `Current migration version: ${ await db.migrate.currentVersion()}` );
+   })();
+}
 module.exports = app;
