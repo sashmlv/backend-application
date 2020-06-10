@@ -2,6 +2,7 @@
 
 const Webpack = require( 'webpack' ),
    path = require( 'path' ),
+   nodeExternals = require( 'webpack-node-externals' ),
    DIST = path.resolve( `${ __dirname }/../dist` );
 
 module.exports = {
@@ -36,6 +37,10 @@ module.exports = {
       filename: '[name].js',
       libraryTarget: 'umd',
    },
+   externals: [
+
+      nodeExternals(),
+   ],
    plugins: [
 
       new Webpack.ProgressPlugin(),
