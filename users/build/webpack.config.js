@@ -2,6 +2,7 @@
 
 const Webpack = require( 'webpack' ),
    path = require( 'path' ),
+   nodeExternals = require( 'webpack-node-externals' ),
    DIST = path.resolve( `${ __dirname }/../dist` );
 
 module.exports = {
@@ -30,6 +31,10 @@ module.exports = {
 
       server: './app/server.js',
    },
+   externals: [
+
+      nodeExternals(),
+   ],
    output: {
 
       path: DIST,
