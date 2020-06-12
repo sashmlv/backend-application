@@ -2,7 +2,6 @@
 
 const Express = require( 'express' ),
    expressPinoLogger = require( 'express-pino-logger' ),
-   bodyParser = require( 'body-parser' ),
    helmet = require( 'helmet' ),
    config = require( '@application/config' ),
    db = require( '@application/db-sql' ),
@@ -20,8 +19,9 @@ app.use( expressPinoLogger({
 
    logger: logger.logLib
 }));
-app.use( bodyParser.json());
-app.use( bodyParser.urlencoded());
+
+app.use(Express.json());
+app.use(Express.urlencoded({extended: true}));
 app.use( helmet());
 
 /* routes */
