@@ -9,7 +9,9 @@
       "prepare": "webpack --config ./build/webpack.config",
       "test": "ava"
    },
-   "repository": {},
+   "repository": {
+      "type": "git"
+   },
    "keywords": [
       "logger"
    ],
@@ -17,7 +19,7 @@
       "@application/config": "^0.0.1",
       "dotenv": "^8.2.0",
       "module-error": "git+https://github.com/sashmlv/modules-module-error.git",
-      "pino": "^6.3.0",
+      "pino": "^6.3.2",
       "pino-pretty": "^4.0.0"
    },
    "devDependencies": {
@@ -25,7 +27,7 @@
       "rewire": "^5.0.0",
       "sinon": "^9.0.2",
       "webpack": "^4.43.0",
-      "webpack-cli": "^3.3.11"
+      "webpack-cli": "^3.3.12"
    },
    "ava": {
       "files": [

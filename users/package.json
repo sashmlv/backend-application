@@ -12,16 +12,11 @@
       "test": "ava"
    },
    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/sashmlv/application.git"
+      "type": "git"
    },
    "keywords": [
       "application"
    ],
-   "bugs": {
-      "url": "https://github.com/sashmlv/application/issues"
-   },
-   "homepage": "https://github.com/sashmlv/application#readme",
    "dependencies": {
       "@application/app-error": "^0.0.1",
       "@application/config": "^0.0.1",
@@ -30,7 +25,7 @@
       "@application/storage": "^0.0.1",
       "express": "^4.17.1",
       "express-pino-logger": "^5.0.0",
-      "helmet": "^3.22.0"
+      "helmet": "^3.23.3"
    },
    "devDependencies": {
       "ava": "^2.4.0",
@@ -38,7 +33,7 @@
       "rewire": "^5.0.0",
       "sinon": "^9.0.2",
       "webpack": "^4.43.0",
-      "webpack-cli": "^3.3.11",
+      "webpack-cli": "^3.3.12",
       "webpack-node-externals": "^1.7.2"
    },
    "ava": {

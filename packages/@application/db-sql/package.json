@@ -9,7 +9,9 @@
       "prepare": "webpack --config ./build/webpack.config",
       "test": "ava"
    },
-   "repository": {},
+   "repository": {
+      "type": "git"
+   },
    "keywords": [
       "db",
       "sql"
@@ -23,7 +25,7 @@
    "devDependencies": {
       "ava": "^2.4.0",
       "webpack": "^4.43.0",
-      "webpack-cli": "^3.3.11",
+      "webpack-cli": "^3.3.12",
       "webpack-node-externals": "^1.7.2"
    },
    "ava": {
