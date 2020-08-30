@@ -7,7 +7,7 @@
    "main": "./dist/index",
    "scripts": {
       "prepare": "webpack --config ./build/webpack.config",
-      "test": "ava"
+      "test": "npm run prepare && ava"
    },
    "repository": {
       "type": "git"

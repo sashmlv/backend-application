@@ -9,7 +9,7 @@ const path = require( 'path' ),
    PASSWORD = process.env.PASSWORD,
    SALT = process.env.SALT;
 
-/* Get environment variables */
+/* get environment variables */
 let env = {
 
    NODE_ENV: process.env.NODE_ENV,
@@ -28,9 +28,9 @@ if( ! env || ! env.NODE_ENV ){
 /* defaults */
 env.NODE_ENV = env.NODE_ENV || 'development';
 
-/* Get application config */
-let config,
-   configDefault = {
+/* get application config */
+let configData,
+   config = {
 
       SERVER: {
 
@@ -64,8 +64,7 @@ let config,
       },
    };
 
-const configFile = path.resolve( `${ APP_ROOT }/config.${ env.NODE_ENV }.js` );
-
+const configFile = path.resolve( `${ APP_ROOT }/configs/config.${ env.NODE_ENV }.js` );
 
 if( fs.existsSync( configFile )){
 
@@ -73,13 +72,13 @@ if( fs.existsSync( configFile )){
     * TODO: hack for webpack, remove this when webpack will support: "Critical dependency: the request of a dependency is an expression"
     * config = require( configFile );
     */
-   config = eval( 'require' )( configFile );
+   configData = eval( 'require' )( configFile );
 
    if( getClass( config ) === 'object' ) {
 
       config = Object.assign(
 
-         configDefault,
+         configData,
          config,
       );
    };

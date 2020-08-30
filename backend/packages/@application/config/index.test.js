@@ -17,7 +17,7 @@ crypt.decrypt = sinon.spy();
 
 test( 'config env', t => {
 
-   config = rewire( './index' );
+   config = rewire( './dist/index' );
 
    t.truthy( config.NODE_ENV );
    t.truthy( config.env );
@@ -25,7 +25,7 @@ test( 'config env', t => {
 
 test( 'config decrypt', t => {
 
-   config = rewire( './index' );
+   config = rewire( './dist/index' );
 
    t.deepEqual( crypt.initSync.callCount, 0 );
    t.deepEqual( crypt.decrypt.callCount, 0 );
@@ -33,7 +33,7 @@ test( 'config decrypt', t => {
    process.env.PASSWORD = '123';
    process.env.SALT = '321';
 
-   config = rewire( './index' );
+   config = rewire( './dist/index' );
 
    t.deepEqual( crypt.initSync.callCount, 1 );
    t.deepEqual( crypt.decrypt.callCount, 2 );
@@ -41,13 +41,13 @@ test( 'config decrypt', t => {
 
 test( 'config frozen', t => {
 
-   config = rewire( './index' );
+   config = rewire( './dist/index' );
 
    t.notThrows( _=> config.HOST = 'http://example.com' );
 
    process.env.NODE_ENV = 'production';
 
-   config = rewire( './index' );
+   config = rewire( './dist/index' );
 
    t.throws( _=> config.HOST = 'http://example.com' );
 });
