@@ -19,14 +19,14 @@
       "@application/config": "^0.0.1",
       "dotenv": "^8.2.0",
       "module-error": "git+https://github.com/sashmlv/modules-module-error.git",
-      "pino": "^6.3.2",
-      "pino-pretty": "^4.0.0"
+      "pino": "^6.7.0",
+      "pino-pretty": "^4.3.0"
    },
    "devDependencies": {
-      "ava": "^2.4.0",
+      "ava": "^3.13.0",
       "rewire": "^5.0.0",
-      "sinon": "^9.0.2",
-      "webpack": "^4.43.0",
+      "sinon": "^9.2.0",
+      "webpack": "^4.44.2",
       "webpack-cli": "^3.3.12"
    },
    "ava": {

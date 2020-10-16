@@ -19,12 +19,12 @@
    "dependencies": {
       "@application/config": "^0.0.1",
       "@application/logger": "^0.0.1",
-      "knex": "^0.21.1",
-      "pg": "^8.2.1"
+      "knex": "^0.21.6",
+      "pg": "^8.4.1"
    },
    "devDependencies": {
-      "ava": "^2.4.0",
-      "webpack": "^4.43.0",
+      "ava": "^3.13.0",
+      "webpack": "^4.44.2",
       "webpack-cli": "^3.3.12",
       "webpack-node-externals": "^1.7.2"
    },

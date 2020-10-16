@@ -19,8 +19,8 @@
       "module-error": "git+https://github.com/sashmlv/modules-module-error.git"
    },
    "devDependencies": {
-      "ava": "^2.4.0",
-      "webpack": "^4.43.0",
+      "ava": "^3.13.0",
+      "webpack": "^4.44.2",
       "webpack-cli": "^3.3.12"
    },
    "ava": {

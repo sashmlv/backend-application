@@ -1,14 +1,14 @@
 {
-   "name": "application",
+   "name": "backend-application",
    "version": "0.0.1",
-   "description": "The application.",
+   "description": "The backend application.",
    "main": "",
    "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1"
    },
    "private": true,
    "devDependencies": {
-      "ava": "^3.10.0",
+      "ava": "^3.13.0",
       "lerna": "^3.16.4"
    },
    "author": "sashmlv",
