@@ -1,1 +1,1 @@
-### The backend application.
+### The backend server.
